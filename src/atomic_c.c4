@@ -230,6 +230,7 @@ SHMEM_DEFINE_FOR_EXTENDED_AMO(SHMEM_DEF_SET)
                                                                         \
         shmem_internal_atomic_small(target, &value, sizeof(TYPE), pe,   \
                                     SHM_INTERNAL_BXOR, ITYPE);          \
+        shmem_internal_get_wait();                                      \
     }
 
 SHMEM_DEFINE_FOR_AMO(SHMEM_DEF_BXOR)
