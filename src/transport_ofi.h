@@ -795,7 +795,7 @@ void shmem_transport_atomic_small(void *target, const void *source,
                                datatype,
                                op);
     } while(try_again(ret, &polled, ctx));
-
+    
     ctx->endpoint.pending_count++;
 
     ctx->release_lock((shmem_transport_domain_t**)ctx);
