@@ -231,7 +231,7 @@ SHMEM_DEFINE_FOR_AMO(SHMEM_DEF_ADD)
     TYPE shmemx_ctx_##STYPE##_fadd(TYPE *target, TYPE value, int pe, \
                                    shmemx_ctx_t c)                   \
     {                                                                \
-        int oldval;                                                  \
+        TYPE oldval;                                                 \
         SHMEM_ERR_CHECK_INITIALIZED();                               \
         SHMEM_ERR_CHECK_PE(pe);                                      \
         SHMEM_ERR_CHECK_SYMMETRIC(target, sizeof(TYPE));             \
@@ -287,3 +287,21 @@ SHMEM_DEFINE_FOR_EXTENDED_AMO(SHMEM_DEF_FETCH)
     }
 
 SHMEM_DEFINE_FOR_EXTENDED_AMO(SHMEM_DEF_SET)
+
+#define SHMEM_DEF_BXOR(STYPE,TYPE,ITYPE)                                \
+    void shmemx_##STYPE##_bxor(TYPE *target, TYPE value, int pe)         \
+    {                                                                   \
+        shmemx_ctx_##STYPE##_bxor(target, value, pe, SHMEMX_CTX_DEFAULT); \
+    }                                                                   \
+    void shmemx_ctx_##STYPE##_bxor(TYPE *target, TYPE value, int pe, shmemx_ctx_t c)    \
+    {                                                                   \
+        SHMEM_ERR_CHECK_INITIALIZED();                                  \
+        SHMEM_ERR_CHECK_PE(pe);                                         \
+        SHMEM_ERR_CHECK_SYMMETRIC(target, sizeof(TYPE));                \
+                                                                        \
+        shmem_internal_atomic_small(target, &value, sizeof(TYPE), pe,   \
+                                    SHM_INTERNAL_BXOR, ITYPE, c);          \
+        shmemx_ctx_quiet(c);                                            \
+    }
+
+SHMEM_DEFINE_FOR_AMO(SHMEM_DEF_BXOR)
