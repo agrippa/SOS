@@ -156,11 +156,11 @@ SHMEM_DECLARE_FOR_EXTENDED_AMO(`SHMEMX_CTX_C_SET')
 
 void SHPRE()shmemx_pcontrol(int level, ...);
 
-void SHPRE()shmemx_int_bxor(int *target, int value, int pe);
-void SHPRE()shmemx_long_bxor(long *target, long value, int pe);
-void SHPRE()shmemx_longlong_bxor(long long *target, long long value, int pe);
+/* AMO: Atomic Bitwise Routines */
+define(`SHMEM_C_XOR',
+`void SHPRE()shmemx_$1_atomic_xor($2 *target, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEM_C_XOR')
 
-/* AMO: Atomic BXOR Routines */
-define(`SHMEMX_CTX_C_BXOR',
-`void SHPRE()shmemx_ctx_$1_bxor($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
-SHMEM_DECLARE_FOR_AMO(`SHMEMX_CTX_C_BXOR')
+define(`SHMEMX_CTX_C_XOR',
+`void SHPRE()shmemx_ctx_$1_atomic_xor($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_XOR')
