@@ -81,7 +81,8 @@ check_PROGRAMS = \
 	reduce_active_set \
 	collect_active_set \
 	pcontrol \
-	many-ctx
+	many-ctx \
+	atomic_bitwise
 
 if ENABLE_PROFILING
 check_PROGRAMS += \

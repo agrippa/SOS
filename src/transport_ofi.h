@@ -388,6 +388,46 @@ void shmem_transport_ofi_get_mr(const void *addr, int dest_pe,
 }
 #endif
 
+typedef enum fi_datatype shm_internal_datatype_t;
+typedef enum fi_op       shm_internal_op_t;
+
+/* Datatypes */
+#define SHM_INTERNAL_FLOAT           FI_FLOAT
+#define SHM_INTERNAL_DOUBLE          FI_DOUBLE
+#define SHM_INTERNAL_LONG_DOUBLE     FI_LONG_DOUBLE
+#define SHM_INTERNAL_FLOAT_COMPLEX   FI_FLOAT_COMPLEX
+#define SHM_INTERNAL_DOUBLE_COMPLEX  FI_DOUBLE_COMPLEX
+#define SHM_INTERNAL_SIGNED_BYTE     FI_INT8
+#define SHM_INTERNAL_INT8            FI_INT8
+#define SHM_INTERNAL_INT16           FI_INT16
+#define SHM_INTERNAL_INT32           FI_INT32
+#define SHM_INTERNAL_INT64           FI_INT64
+#define SHM_INTERNAL_SHORT           DTYPE_SHORT
+#define SHM_INTERNAL_INT             DTYPE_INT
+#define SHM_INTERNAL_LONG            DTYPE_LONG
+#define SHM_INTERNAL_LONG_LONG       DTYPE_LONG_LONG
+#define SHM_INTERNAL_FORTRAN_INTEGER DTYPE_FORTRAN_INTEGER
+#define SHM_INTERNAL_UINT            DTYPE_UNSIGNED_INT
+#define SHM_INTERNAL_ULONG           DTYPE_UNSIGNED_LONG
+#define SHM_INTERNAL_ULONG_LONG      DTYPE_UNSIGNED_LONG_LONG
+#define SHM_INTERNAL_INT32           FI_INT32
+#define SHM_INTERNAL_INT64           FI_INT64
+#define SHM_INTERNAL_UINT32          FI_UINT32
+#define SHM_INTERNAL_UINT64          FI_UINT64
+
+/* Operations */
+#define SHM_INTERNAL_BAND            FI_BAND
+#define SHM_INTERNAL_BOR             FI_BOR
+#define SHM_INTERNAL_BXOR            FI_BXOR
+#define SHM_INTERNAL_MIN             FI_MIN
+#define SHM_INTERNAL_MAX             FI_MAX
+#define SHM_INTERNAL_SUM             FI_SUM
+#define SHM_INTERNAL_PROD            FI_PROD
+
+#define SHMEM_TRANSPORT_OFI_TYPE_BOUNCE 0x01
+#define SHMEM_TRANSPORT_OFI_TYPE_LONG   0x02
+
+
 extern fi_addr_t *addr_table;
 
 /* assumes the associated domain is already locked if necessary */

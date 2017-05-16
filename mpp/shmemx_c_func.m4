@@ -164,3 +164,51 @@ SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEM_C_XOR')
 define(`SHMEMX_CTX_C_XOR',
 `void SHPRE()shmemx_ctx_$1_atomic_xor($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
 SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_XOR')
+
+define(`SHMEM_C_AND',
+`void SHPRE()shmemx_$1_atomic_and($2 *target, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEM_C_AND')
+
+define(`SHMEMX_CTX_C_AND',
+`void SHPRE()shmemx_ctx_$1_atomic_and($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_AND')
+
+define(`SHMEM_C_OR',
+`void SHPRE()shmemx_$1_atomic_or($2 *target, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEM_C_OR')
+
+define(`SHMEMX_CTX_C_OR',
+`void SHPRE()shmemx_ctx_$1_atomic_or($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_OR')
+
+define(`SHMEMX_C_FETCH_XOR',
+`$2 SHPRE()shmemx_$1_atomic_fetch_xor($2 *target, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_C_FETCH_XOR')
+
+define(`SHMEMX_CTX_C_FETCH_XOR',
+`$2 SHPRE()shmemx_ctx_$1_atomic_fetch_xor($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_FETCH_XOR')
+
+define(`SHMEM_C_FETCH_AND',
+`$2 SHPRE()shmemx_$1_atomic_fetch_and($2 *target, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEM_C_FETCH_AND')
+
+define(`SHMEMX_CTX_C_FETCH_AND',
+`$2 SHPRE()shmemx_ctx_$1_atomic_fetch_and($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_FETCH_AND')
+
+define(`SHMEM_C_FETCH_OR',
+`$2 SHPRE()shmemx_$1_atomic_fetch_or($2 *target, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEM_C_FETCH_OR')
+
+define(`SHMEMX_CTX_C_FETCH_OR',
+`$2 SHPRE()shmemx_ctx_$1_atomic_fetch_or($2 *target, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_BITWISE_AMO(`SHMEMX_CTX_C_FETCH_OR')
+
+define(`SHMEM_C_CSWAP_NBI',
+`void SHPRE()shmemx_$1_cswap_nbi($2 *result, $2 *target, $2 cond, $2 value, int pe)')dnl
+SHMEM_DECLARE_FOR_AMO(`SHMEM_C_CSWAP_NBI')
+
+define(`SHMEM_CTX_C_CSWAP_NBI',
+`void SHPRE()shmemx_ctx_$1_cswap_nbi($2 *result, $2 *target, $2 cond, $2 value, int pe, shmemx_ctx_t ctx)')dnl
+SHMEM_DECLARE_FOR_AMO(`SHMEM_CTX_C_CSWAP_NBI')
